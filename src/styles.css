@@ -239,6 +239,33 @@ h1,h2,h3 {
     border-radius: .5rem;
 }
 
+.boton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.mensaje-alerta {
+    max-width: 60rem;
+    margin: 0 auto 3rem;
+    padding: 1.5rem 2rem;
+    border-radius: .5rem;
+    font-size: 1.6rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.mensaje-alerta.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.mensaje-alerta.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
 /** Sobre Mi **/
 .sobre-mi {
     margin-bottom: 4rem;
