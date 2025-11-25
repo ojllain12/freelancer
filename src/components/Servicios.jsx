@@ -80,7 +80,7 @@ Nos enfocamos en ofrecer experiencias visuales atractivas, velocidad, accesibili
         </section>
 
         <section className="servicio">
-          <h3>E-Commerce</h3>
+          <h3>Soluciones IoT</h3>
           <div className="iconos">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="40" height="40" aria-hidden="false" role="img">
               <title>Antena de transmisión</title>

@@ -120,8 +120,93 @@ h1, h2 {
 
 
 /* Titulos */
+.titulo {
+    font-size: 5rem;
+    font-weight: 900;
+    letter-spacing: 0.5rem;
+    margin: 3rem 0;
+    position: relative;
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+}
+
+header {
+    text-align: center;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.titulo-neon {
+    color: var(--primario);
+    text-shadow: 
+        0 0 10px var(--primario),
+        0 0 20px var(--primario),
+        0 0 40px var(--primario),
+        0 0 80px var(--primario),
+        0 0 120px var(--primario);
+    animation: neon-flicker 1.5s infinite alternate;
+}
+
+.titulo-accent {
+    color: var(--accent);
+    text-shadow: 
+        0 0 10px var(--accent),
+        0 0 20px var(--accent),
+        0 0 40px var(--accent),
+        0 0 80px var(--accent);
+    display: inline-block;
+    animation: pulse-accent 2s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes neon-flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        text-shadow: 
+            0 0 10px var(--primario),
+            0 0 20px var(--primario),
+            0 0 40px var(--primario),
+            0 0 80px var(--primario),
+            0 0 120px var(--primario);
+    }
+    20%, 24%, 55% {
+        text-shadow: none;
+    }
+}
+
+@keyframes pulse-accent {
+    0%, 100% {
+        transform: scale(1);
+        text-shadow: 
+            0 0 10px var(--accent),
+            0 0 20px var(--accent),
+            0 0 40px var(--accent);
+    }
+    50% {
+        transform: scale(1.1);
+        text-shadow: 
+            0 0 20px var(--accent),
+            0 0 40px var(--accent),
+            0 0 60px var(--accent),
+            0 0 100px var(--accent);
+    }
+}
+
 .titulo span {
     font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+    .titulo {
+        font-size: 3.5rem;
+        letter-spacing: 0.3rem;
+    }
 }
 
 /** Utilidades **/
@@ -656,8 +741,88 @@ section {
 /** Footer **/
 .footer {
     text-align: center;
-    color: var(--texto-secundario);
-    padding: 2rem 0;
-    border-top: 1px solid var(--borde-sutil);
+    padding: 4rem 0 3rem;
+    border-top: 2px solid var(--borde-sutil);
     margin-top: 4rem;
+    background: linear-gradient(180deg, transparent, rgba(0, 194, 255, 0.03));
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primario), var(--secundario), transparent);
+    box-shadow: 0 0 10px var(--primario);
+}
+
+.footer-texto {
+    color: var(--texto-secundario);
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.1rem;
+}
+
+.footer-copyright {
+    display: inline-block;
+    color: var(--primario);
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px var(--hover-glow);
+    animation: pulse-slow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-slow {
+    0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 10px var(--hover-glow);
+    }
+    50% {
+        transform: scale(1.1);
+        text-shadow: 0 0 20px var(--hover-glow), 0 0 30px var(--primario);
+    }
+}
+
+.footer-nombre {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    margin-top: 1rem;
+}
+
+.nombre-neon {
+    color: var(--primario);
+    text-shadow: 
+        0 0 5px var(--primario),
+        0 0 10px var(--primario),
+        0 0 20px var(--primario);
+    transition: all 0.3s ease;
+}
+
+.nombre-accent {
+    color: var(--accent);
+    text-shadow: 
+        0 0 5px var(--accent),
+        0 0 10px var(--accent),
+        0 0 20px var(--accent);
+    transition: all 0.3s ease;
+}
+
+.footer:hover .nombre-neon {
+    text-shadow: 
+        0 0 10px var(--primario),
+        0 0 20px var(--primario),
+        0 0 40px var(--primario),
+        0 0 60px var(--primario);
+}
+
+.footer:hover .nombre-accent {
+    text-shadow: 
+        0 0 10px var(--accent),
+        0 0 20px var(--accent),
+        0 0 40px var(--accent),
+        0 0 60px var(--accent);
 }
