@@ -134,7 +134,7 @@ export default function Contacto() {
     };
 
     try {
-      const response = await fetch('http://localhost:5001/api/contacto', {
+      const response = await fetch('http://80.65.211.178:5001/api/contacto', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
