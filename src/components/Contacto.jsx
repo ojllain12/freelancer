@@ -134,7 +134,8 @@ export default function Contacto() {
     };
 
     try {
-      const response = await fetch('http://80.65.211.178:5001/api/contacto', {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5001';
+      const response = await fetch(`${apiUrl}/api/contacto`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -164,10 +165,18 @@ export default function Contacto() {
         });
       }
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error completo:', error);
+      let mensajeError = 'Error de conexión.';
+      
+      if (error.message.includes('Failed to fetch')) {
+        mensajeError = 'No se pudo conectar con el servidor. Verifica tu conexión a internet.';
+      } else if (error.message.includes('NetworkError')) {
+        mensajeError = 'Error de red. El servidor puede no estar disponible.';
+      }
+      
       setMensaje({
         tipo: 'error',
-        texto: 'Error de conexión. Verifica que el servidor esté activo.'
+        texto: mensajeError
       });
     } finally {
       setEnviando(false);
